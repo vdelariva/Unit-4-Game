@@ -5,18 +5,24 @@ $(document).ready(function() {
     $(".crystals").on("click",function() {
         // console.log($(this).attr("id"));
         // console.log(this);
-        // console.log(playerScore);
 
+        // Clear previous game status on first gem click in new game
+        if (playerScore===0) {
+            // $("#status").fadeOut("slow");
+            $("#status").html("");
+        }
+
+        // Add selected gem value to playerScore
         addScore($(this).attr("id"));
 
         if (playerScore === randomScore) {
             wins++;
-            $("#status").html("You Win!")
+            $("#status").html("You Win!");
             resetGame();
         }
         else if (playerScore > randomScore) {
             losses++;
-            $("#status").html("You Lose!")
+            $("#status").html("You Lose!");
             resetGame();
         }
 });
@@ -37,9 +43,6 @@ $(document).ready(function() {
 
     function Gem (value) {
         this.value = value;
-        // function addScore() {
-            // playerScore += this.value;
-        // }
     }
 
     function addScore(gem) {
@@ -66,17 +69,17 @@ $(document).ready(function() {
         playerScore = 0;
         randomScore = Math.floor(Math.random() * 102) + 19;
 
-        redGem.value = getRandomPower(powersArr)
+        redGem.value = getRandomPower(powersArr);
         blueGem.value = getRandomPower(powersArr);
         greenGem.value = getRandomPower(powersArr);
         purpleGem.value = getRandomPower(powersArr);
 
 
 
-        console.log("Red:" + redGem.value)
-        console.log("Blue:" + blueGem.value)
-        console.log("Green:" + greenGem.value)
-        console.log("Purple:"+ purpleGem.value)
+        console.log("Red:" + redGem.value);
+        console.log("Blue:" + blueGem.value);
+        console.log("Green:" + greenGem.value);
+        console.log("Purple:"+ purpleGem.value);
     
 
         // Display values
