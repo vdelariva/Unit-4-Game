@@ -8,8 +8,8 @@ $(document).ready(function() {
 
         // Clear previous game status on first gem click in new game
         if (playerScore===0) {
-            // $("#status").fadeOut("slow");
-            $("#status").html("");
+            $("#status").fadeOut();
+            // $("#status").html("");
         }
 
         // Add selected gem value to playerScore
@@ -18,11 +18,13 @@ $(document).ready(function() {
         if (playerScore === randomScore) {
             wins++;
             $("#status").html("You Win!");
+            $("#status").fadeIn();
             resetGame();
         }
         else if (playerScore > randomScore) {
             losses++;
             $("#status").html("You Lose!");
+            $("#status").fadeIn();
             resetGame();
         }
 });
